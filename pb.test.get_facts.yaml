@@ -25,3 +25,12 @@
 #        debug: msg="Router {{ inventory_hostname }} is running {{ version }}"
         debug:
             var: junos.ansible_facts.version
+            
+    -   name: Collect device Facts and Configuration in XML
+        junos_facts:
+            config: yes
+            config_format: xml
+            provider: "{{ credential }}"
+        register: result
+        
+# testing git 
